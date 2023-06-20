@@ -7,6 +7,10 @@ use CodeIgniter\Controller;
 
 class ClienteController extends BaseController
 {
+    public function index()
+  {
+    return view('cliente');
+  }
     public function insertar()
     {
         $model = new ClienteModel();

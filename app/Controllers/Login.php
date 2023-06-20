@@ -13,20 +13,28 @@ class Login extends BaseController
     {
         $userModel = new UserModel();
 
-        $username = $this->request->getPost('usuario');
-        $password = $this->request->getPost('contrasena');
+        $usuario = $this->request->getPost('usuario');
+        $contrasena = $this->request->getPost('contrasena');
 
-        $user = $userModel->where('username', $username)->first();
+        $user = $userModel->where('usuario', $usuario)->first();
 
-        if ($user && password_verify($password, $user['password'])) {
+        if ($user && password_verify($contrasena, $usuario['contrasena'])) {
             // Inicio de sesión exitoso
             // Aquí puedes realizar cualquier acción adicional, como guardar información de sesión o redirigir al usuario a una página específica
-            return redirect()->to('/home');
+            return redirect()->to('/administrador');
         } else {
             // Inicio de sesión fallido
             // Puedes mostrar un mensaje de error o redirigir al usuario de regreso al formulario de inicio de sesión con un mensaje de error
             return redirect()->back()->with('error', 'Inicio de sesión fallido. Verifica tus credenciales.');
         }
+    }
+    public function logout()
+    {
+        // Destruir la sesión actual
+        session()->destroy();
+
+        // Redirigir al formulario de inicio de sesión o a otra página
+        return redirect()->to('/login');
     }
 }
 
@@ -38,4 +46,4 @@ class Login extends BaseController
 
 
 
-}
+
