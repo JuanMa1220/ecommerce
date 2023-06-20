@@ -35,6 +35,9 @@
     <?php
         print"hola equipo";
     ?>
+    <?php
+        print"hola miriam";
+    ?>
     </form>    
 </body>
 </html>
