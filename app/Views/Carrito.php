@@ -33,7 +33,7 @@
       </nav>
     </header>
     <?php
-        print"hola mundo";
+        print"hola equipo";
     ?>
     </form>    
 </body>
