@@ -14,7 +14,7 @@ class Login extends BaseController
         $userModel = new UserModel();
 
         $username = $this->request->getPost('usuario');
-        $password = $this->request->getPost('password');
+        $password = $this->request->getPost('contrasena');
 
         $user = $userModel->where('username', $username)->first();
 
