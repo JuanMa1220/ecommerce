@@ -32,10 +32,14 @@ $routes->set404Override();
 
 $routes->get('/login', 'Login::login');
 $routes->get('/carrito', 'Carrito::carrito');
-$routes->post('login/processLogin', 'LoginController::processLogin');
+$routes->post('/login', 'Login::processLogin');
+$routes->get('/administrador', 'Admin::index');
 $routes->get('/', 'Home::index');
 $routes->get('/home', 'Home::home');
-$routes->get('/cliente', 'ClienteController::index');
+$routes->get('cliente', 'ClienteController::index');
+$routes->get('login/registrar', 'Login::registrar');
+$routes->get('cliente/agregar', 'ClienteController::agregar');
+$routes->post('cliente/guardar', 'ClienteController::guardar');
 
 
 

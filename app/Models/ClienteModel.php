@@ -6,11 +6,28 @@ use CodeIgniter\Model;
 
 class ClienteModel extends Model
 {
-    protected $table = 'Cliente';
-    public function insertData($data)
+    protected $table = 'cliente';
+    protected $primaryKey = 'idcliente';
+    protected $allowedFields = ['nombre', 'apellidos', 'usuario', 'edad', 'fecha', 'genero', 'correo', 'contrasena', 'direccion', 'telefono'];
+
+    public function guardar($data)
     {
-        
+        return $this->insert($data);
     }
-    protected $allowedFields = ['nombre','apellidos', 'edad', 'fecha', 'genero', 'correo', 'direccion', 'telefono'];
+
+    public function obtenerCliente($idcliente)
+    {
+        return $this->find($idcliente);
+    }
+
+    public function actualizarCliente($idcliente, $data)
+    {
+        return $this->update($idcliente, $data);
+    }
+
+    public function eliminarCliente($idcliente)
+    {
+        return $this->delete($idcliente);
+    }
 }
 ?>

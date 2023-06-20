@@ -22,6 +22,11 @@ class UserModel extends Model
             return false;
         }
     }
+    public function registrar($datos)
+    {
+        
+        return redirect()->to('/cliente');
+    }
 }
 
 ?>

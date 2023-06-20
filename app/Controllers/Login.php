@@ -28,6 +28,11 @@ class Login extends BaseController
             return redirect()->back()->with('error', 'Inicio de sesión fallido. Verifica tus credenciales.');
         }
     }
+    public function index()
+    {
+        
+        return view('cliente');
+    }
     public function logout()
     {
         // Destruir la sesión actual

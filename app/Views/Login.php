@@ -32,7 +32,8 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Entrar</button>
-                <a href="<?= base_url('cliente'); ?>" class="btn btn-primary">Registrar</a>
+                <a href="<?= base_url('cliente') ?>" class="btn btn-primary">Registrar</a>
+
             </div>
         </div>
     </form>
