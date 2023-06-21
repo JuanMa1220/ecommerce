@@ -4,9 +4,9 @@ namespace App\Controllers;
 
 use App\Models\ClienteModel;
 
-class Cliente extends BaseController
+class ClienteController extends BaseController
 {
-    public function index()
+    public function cliente()
     {
         
         return view('cliente');

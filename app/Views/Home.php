@@ -30,7 +30,7 @@
           ?>
 
           <form class="form-inline my-2 my-lg-0">          
-          <a href="http://localhost/ecommerce/insertar" class="btn btn-primary">Registrar</a>
+          <a href="http://localhost/ecommerce/cliente" class="btn btn-primary">Registrar</a>
           </form>
         </div>
       </nav>
