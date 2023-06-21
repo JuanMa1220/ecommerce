@@ -31,13 +31,10 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 $routes->get('/', 'Login::login');
-$routes->post('/login/validarDatos', 'LoginController::validarDatos');
+$routes->post('/login/validarDatos', 'Login::validarDatos');
 $routes->get('/administrador', 'Admin::index');
 $routes->get('/home', 'Home::index');
-$routes->get('/home', 'Home::home');
 $routes->get('/cliente', 'ClienteController::cliente');
-$routes->get('login/registrar', 'Login::registrar');
-$routes->get('cliente/agregar', 'ClienteController::agregar');
 $routes->post('cliente/guardar', 'ClienteController::guardar');
 $routes->get('/carrito', 'Carrito::carrito');
 $routes->get('/home', 'Home::home');
