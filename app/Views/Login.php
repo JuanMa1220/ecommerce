@@ -16,7 +16,7 @@
 <div class="container">
     <h2>Login</h2>
     <br><br>
-    <form class="form-horizontal" action="<?= base_url('login/processLogin'); ?>" method="post">
+    <form class="form-horizontal" action="<?= site_url('login/ingresar') ?>" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
             <div class="col-sm-4">
@@ -32,8 +32,8 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <button type="submit" class="btn btn-default">Entrar</button>
-                <a href="<?= base_url('cliente') ?>" class="btn btn-primary">Registrar</a>
-                <a href="http://localhost/ecommerce/home" class="btn btn-primary">Volver</a>
+                <a href="<?= site_url('cliente') ?>" class="btn btn-primary">Registrar</a>
+                <a href="<?= site_url('home') ?>" class="btn btn-primary">Volver</a>
             </div>
         </div>
     </form>

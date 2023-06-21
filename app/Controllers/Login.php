@@ -4,31 +4,39 @@ namespace App\Controllers;
 
 class Login extends BaseController
 {
+
     public function login()
     {
         helper('url');
         return view('Login');
     }
-    public function validarDatos()
+    
+    public function ingresar()
     {
-        // Obtener los datos del formulario
-        $usuario = $this->request->getPost('usuario');
-        $contrasena = $this->request->getPost('contrasena');
+        // Cargar el modelo de Usuario
+        $userModel = new UserModel();
 
-        // Instanciar el modelo de Login
-        $UserModel = new UserModel();
+        // Validar el formulario de inicio de sesión
+        if ($this->request->getMethod() === 'post') {
+            $usuario = $this->request->getPost('usuario');
+            $contrasena = $this->request->getPost('contrasena');
 
-        // Validar los datos
-        $isValid = $UserModel->validateData($usuario, $contrasena);
+            // Obtener el usuario por las credenciales
+            $usuario = $userModel->obtenerUsuarioPorCredenciales($usuario, $contrasena);
 
-        if ($isValid) {
-            // Si los datos son válidos, redirigir a la vista de administrador
-            return redirect()->to('/administrador');
-        } else {
-            // Si los datos no son válidos, redirigir al formulario de inicio de sesión con un mensaje de error
-            return redirect()->to('/login')->with('mensaje', 'Nombre de usuario o contraseña incorrectos');
+            if (!$usuario) {
+                // Las credenciales son inválidas, redirigir al formulario de inicio de sesión con errores
+                return redirect()->back()->withInput()->with('error', 'Credenciales inválidas');
+            } else {
+                return redirect()->to('/administrador');
+            }
         }
+
+        // Mostrar el formulario de inicio de sesión
+        return view('login');
     }
+
+    
 
     public function index()
     {
