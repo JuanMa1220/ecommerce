@@ -9,29 +9,31 @@ class Login extends BaseController
         helper('url');
         return view('Login');
     }
-    public function processLogin()
+    public function validarDatos()
     {
-        $userModel = new UserModel();
-
+        // Obtener los datos del formulario
         $usuario = $this->request->getPost('usuario');
         $contrasena = $this->request->getPost('contrasena');
 
-        $user = $userModel->where('usuario', $usuario)->first();
+        // Instanciar el modelo de Login
+        $UserModel = new UserModel();
 
-        if ($user && password_verify($contrasena, $usuario['contrasena'])) {
-            // Inicio de sesión exitoso
-            // Aquí puedes realizar cualquier acción adicional, como guardar información de sesión o redirigir al usuario a una página específica
+        // Validar los datos
+        $isValid = $UserModel->validateData($usuario, $contrasena);
+
+        if ($isValid) {
+            // Si los datos son válidos, redirigir a la vista de administrador
             return redirect()->to('/administrador');
         } else {
-            // Inicio de sesión fallido
-            // Puedes mostrar un mensaje de error o redirigir al usuario de regreso al formulario de inicio de sesión con un mensaje de error
-            return redirect()->back()->with('error', 'Inicio de sesión fallido. Verifica tus credenciales.');
+            // Si los datos no son válidos, redirigir al formulario de inicio de sesión con un mensaje de error
+            return redirect()->to('/login')->with('mensaje', 'Nombre de usuario o contraseña incorrectos');
         }
     }
+
     public function index()
     {
         
-        return view('cliente');
+        return view('/cliente');
     }
     public function logout()
     {
@@ -39,7 +41,7 @@ class Login extends BaseController
         session()->destroy();
 
         // Redirigir al formulario de inicio de sesión o a otra página
-        return redirect()->to('/login');
+        return redirect()->to('');
     }
 }
 

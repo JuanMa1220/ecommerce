@@ -102,7 +102,7 @@
         </form>
 
         <form class="form-inline my-2 my-lg-0">
-            <a href="<?= base_url('cliente'); ?>" class="btn btn-primary">Volver</a>
+            <a href="<?= base_url('login'); ?>" class="btn btn-primary">Volver</a>
         </form>
     </div>
 </body>

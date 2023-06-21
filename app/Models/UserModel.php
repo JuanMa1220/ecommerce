@@ -10,18 +10,14 @@ class UserModel extends Model
     protected $primaryKey = 'idcliente';
     protected $allowedFields = ['usuario', 'contrasena'];
     
-    public function login($usuario, $contrasena)
+    public function validateData($usuario, $contrasena)
     {
-        $usuario = $this->where('usuario', $usuario)->first();
+        // Verificar si existe un registro en la tabla cliente con el usuario y contraseña proporcionados
+        $query = $this->where(['usuario' => $usuario, 'contrasena' => $contrasena])->countAllResults();
 
-        if ($usuario && password_verify($contrasena, $usuario['contrasena'])) {
-            // Inicio de sesión exitoso
-            return true;
-        } else {
-            // Inicio de sesión fallido
-            return false;
-        }
+        return ($query > 0); // Retorna true si se encontró un registro, false de lo contrario
     }
+    
     public function registrar($datos)
     {
         
