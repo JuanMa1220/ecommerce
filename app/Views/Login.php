@@ -16,7 +16,7 @@
 <div class="container">
     <h2>Login</h2>
     <br><br>
-    <form class="form-horizontal" action="<?= site_url('login/ingresar') ?>" method="post">
+    <form class="form-horizontal" action="<?= site_url('login/adminitrador') ?>" method="post">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-2 control-label">Usuario</label>
             <div class="col-sm-4">

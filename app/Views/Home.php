@@ -19,7 +19,7 @@
           </ul>
     
           <form class="form-inline my-2 my-lg-0">            
-          <a href="http://localhost/ecommerce/login" class="btn btn-primary">login</a>
+          <a href="<?=base_url('/')?>" class="btn btn-primary">Login</a>
           </form>
           <br><br>
 
@@ -30,7 +30,7 @@
           ?>
 
           <form class="form-inline my-2 my-lg-0">          
-          <a href="http://localhost/ecommerce/cliente" class="btn btn-primary">Registrar</a>
+          <a href="<?=base_url('cliente')?>" class="btn btn-primary">Registrar</a>
           </form>
         </div>
       </nav>
@@ -38,11 +38,11 @@
 
     <header>
       <?php
-        print "hola bienvenido";
+        print "Hola bienvenido";
         echo "<br><br>";
       ?>
    
-      <div class="container"><!--este div junto con su class="container posiciona la palabra Producto"-->
+      <div class="container">
         <h1 class="title">Productos</h1>
       </div>
     </header>
@@ -59,7 +59,7 @@
               <div class="info">
                 <h2>pantalla</h2>
                 <form class="form-inline my-2 my-lg-0">          
-                  <a href="http://localhost/ecommerce/carrito" class="btn btn-primary">agregar</a>
+                  <a href="<?=base_url('carrito')?>" class="btn btn-primary">Agregar</a>
                 </form>
           </div>
         </div>
@@ -80,7 +80,7 @@
             <div class="info">
               <h2>pantalla</h2>
               <form class="form-inline my-2 my-lg-0">          
-                  <a href="http://localhost/ecommerce/carrito" class="btn btn-primary">agregar</a>
+                  <a href="" class="btn btn-primary">agregar</a>
                 </form>
           </div>
         </div>
@@ -101,7 +101,7 @@
               <div class="info">
                 <h2>pantalla</h2>
                 <form class="form-inline my-2 my-lg-0">          
-                  <a href="http://localhost/ecommerce/carrito" class="btn btn-primary">agregar</a>
+                  <a href="<?=base_url('carrito')?>" class="btn btn-primary">agregar</a>
                 </form>
               </div>
           </div>
